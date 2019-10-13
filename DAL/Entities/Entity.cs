@@ -17,7 +17,6 @@ namespace DAL.Entities
             get { return Id; }
         }
 
-        public string Name { get; set; }
 
         private DateTime? createdDate;
         [DataType(DataType.DateTime)]

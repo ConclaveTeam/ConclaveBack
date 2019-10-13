@@ -9,5 +9,8 @@ namespace DAL.Entities
         public string Text { get; set; }
         public Author Author { get; set; }
         public int AuthorId { get; set; }
+
+        public Comment ParentComment { get; set; }
+        public int ParentCommentId { get; set; }
     }
 }
