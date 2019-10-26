@@ -1,4 +1,6 @@
-﻿using DAL.Entities;
+﻿using Common;
+using Common.Encryption;
+using DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -22,7 +24,37 @@ namespace DAL.EF
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            var deanSalt = Salt.Create();
+            var goodUser = new User
+            {
+                Id = 1,
+                Login = "GoodUser",
+                FirstName = "Petr",
+                LastName = "Ivanov",
 
+                Salt = deanSalt,
+                Password = Hash.Create("123", deanSalt)
+            };
+
+            var badUser = new User
+            {
+                Id = 1,
+                Login = "BadUser",
+                FirstName = "Petr",
+                LastName = "Ivanov",
+
+                Salt = deanSalt,
+                Password = Hash.Create("123", deanSalt),
+                IsFrozenUser = true
+            };
+
+            var users = new List<User>
+            {
+                goodUser,
+                badUser
+            };
+
+            builder.Entity<User>().HasData(users);
         }
     }
 }

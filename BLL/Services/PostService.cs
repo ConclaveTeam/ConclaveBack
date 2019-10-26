@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BLL.Services
 {
-    public class PostService
+    public  class PostService
     {
     }
 }
