@@ -2,19 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DAL.Entities
+namespace BLL.Models
 {
-    public class Post : Entity<int>
+    public class PostBLL
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public DateTime DatePosted { get; set; }
         public string Text { get; set; }
         public int ThemeId { get; set; }
-        public Theme Theme { get; set; }
-        public Author Author { get; set; }
         public int AuthorId { get; set; }
-
-        public ICollection<Comment> Comments { get; set; }
-
     }
 }

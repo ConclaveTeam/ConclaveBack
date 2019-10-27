@@ -23,5 +23,7 @@ namespace DAL.Entities
         public string Password { get; set; }
 
         public bool IsFrozenUser { get; set; }
+
+        public Author Author { get; set; }
     }
 }
